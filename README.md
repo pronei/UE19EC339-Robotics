@@ -19,8 +19,9 @@ Once the counter's end value is reached, the server responses to the `result` re
 values of the counter and continue to spin.
 
 ### Functionality to be implemented
-1. A starting value to the counter instead of the 0 (default).
-2. A rate (in Hz) to the timer based callback for incrementing
+1. A starting value to the counter instead of 0 (default).
+2. A rate (in Hz) to the timer based callback for incrementing.
+3. **[BONUS]** The server should decline `GoalService` in cases where the start value exceeds the end of the counter at the time of making the request from the client's side.
 
 ### Guidelines
 - Follow the TODOs mentioned inside [`counter_action_client.py`](action_tutorial/scripts/counter_action_client.py), [`counter_action_server.py`](action_tutorial/scripts/counter_action_server.py) and [`CounterGoal.srv`](action_tutorial/srv/CounterGoal.srv).

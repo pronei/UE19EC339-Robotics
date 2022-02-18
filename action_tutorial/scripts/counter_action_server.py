@@ -25,10 +25,10 @@ def handle_counter_goal(req):
     global counter_value, counter_limit, counterTimer
     rospy.loginfo("Accepted goal request to count till %d", req.count)
     # set up a timer to increment the value of counter
-    # TODO: change `counter_value` to the start value read from the req
+    # TODO: change `counter_value` to the start value contained inside req
     counter_value = 0
     counter_limit = req.count
-    # TODO: change the argument in `Duration` to that specified by the supplied rate in the req
+    # TODO: change the duration of the timer to that specified by the rate inside req
     counterTimer = rospy.Timer(rospy.Duration(secs=1), increment_counter_callback)
     return CounterGoalResponse(True)
 

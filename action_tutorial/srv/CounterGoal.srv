@@ -1,7 +1,7 @@
 uint8 count
 # TODO
-# add a field count_start, preferably unsigned integer
-# add a field rate, should handle floating point values
+# add a field for the starting value of the counter, preferably unsigned integer
+# add a field for the rate of the counter's incrementation, should handle floating point values
 # info on types can be found here: http://wiki.ros.org/msg
 ---
 bool result
