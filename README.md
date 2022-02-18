@@ -1,10 +1,18 @@
 # Robotic Systems - UE19EC339
 Repository that contains the starter codes for assignments and general instructions, links and resources.
 
+## Mini-assignment I
+The package is contained in `action_tutorial`. Clone this repo and copy `action_tutorial` into your workspace.
+
+The objective of this assignment is to understand how [**actions**](https://design.ros2.org/articles/actions.html) work in ROS.
+![](https://docs.ros.org/en/foxy/_images/Action-SingleActionClient.gif)
+
+Follow the TODOs mentioned inside `counter_action_client.py`, `counter_action_server.py` and `CounterGoal.srv`.
+
 ## Environment setup
 
 ### Prerequisites
-1. Ubuntu 18 or Ubuntu 20
+1. Ubuntu 18 or Ubuntu 20 (VM of the same alternatively if not possible to install)
    - 8GB (or above) pendrive for Ubuntu Live USB (for installing Ubuntu itself)
    - 16GB (or above) pendrive for Ubuntu
 2. ROS Melodic (Ubuntu 18) or ROS Noetic (Ubuntu 20)

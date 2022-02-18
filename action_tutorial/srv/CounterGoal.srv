@@ -1,3 +1,6 @@
 uint8 count
+# TODO
+# add a field count_start
+# add a field rate
 ---
 bool result
