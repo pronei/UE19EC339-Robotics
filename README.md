@@ -2,7 +2,7 @@
 Repository that contains the starter codes for assignments and general instructions, links and resources.
 
 ## Mini-assignment I
-The package is contained in `action_tutorial`. Clone this repo and copy `action_tutorial` into your workspace.
+The package is contained in `action_tutorial`. Clone this repo, copy `action_tutorial` into your workspace and build.
 
 The objective of this assignment is to understand how [**actions**](https://design.ros2.org/articles/actions.html) work in ROS.
 ![](https://docs.ros.org/en/foxy/_images/Action-SingleActionClient.gif)
