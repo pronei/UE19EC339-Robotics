@@ -1,6 +1,6 @@
 uint8 count
 # TODO
-# add a field count_start
-# add a field rate
+# add a field count_start, preferably unsigned integer
+# add a field rate, should handle floating point values
 ---
 bool result

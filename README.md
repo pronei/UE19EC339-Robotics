@@ -7,7 +7,26 @@ The package is contained in `action_tutorial`. Clone this repo and copy `action_
 The objective of this assignment is to understand how [**actions**](https://design.ros2.org/articles/actions.html) work in ROS.
 ![](https://docs.ros.org/en/foxy/_images/Action-SingleActionClient.gif)
 
-Follow the TODOs mentioned inside `counter_action_client.py`, `counter_action_server.py` and `CounterGoal.srv`.
+### Overview
+As seen from the above illustration, the package serves to replicate the behavior of **actions** in ROS using the example of a simple
+counter. There are 2 main services `GoalService` and `ResultService` alongside a single pub-sub on `/feedback_topic`. The client sends a 
+`goal` request to the server containing the value to be counted to, assuming that the count starts from 0. To
+this, the server responds back with an acknowledgement and begins the process of counting. A timer based callback is then setup on the server to increment the counter at intervals of 1 second.
+To initiate feedback from the server, the client sends another `result` request to the server and waits for a response to the same (this is sent when the counter's final value is reached).
+Once this service call is handled on the server, it begins to publish "feedback" on `/feedback_topic`, which is the current value of the
+counter at that instant of time. The client having subscribed to this feedback topic, listens to it and logs the data on it.
+Once the counter's end value is reached, the server responses to the `result` request sent earlier. Both client and server log the final
+values of the counter and continue to spin.
+
+### Functionality to be implemented
+1. A starting value to the counter instead of the 0 (default).
+2. A rate (in Hz) to the timer based callback for incrementing
+
+### Guidelines:
+- Follow the TODOs mentioned inside `counter_action_client.py`, `counter_action_server.py` and `CounterGoal.srv`.
+- Upon completing each task mentioned under a TODO, please delete the corresponding TODO comment.
+- An automated script will grade your code depending on the functionality achieved so please test your code before submitting.
+- Submit the modified package folder `action_tutorial` inside a folder with your name and SRN (`Firstname_PES12017XXXXX`).
 
 ## Environment setup
 

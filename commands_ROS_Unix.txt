@@ -1,0 +1,88 @@
+# everything that begins with # is a comment
+# create ws and src in any direc (could be documents)
+mkdir -p tutorial_ws/src
+cd tutorial_ws
+
+# initialize ws
+catkin_make
+
+# create package
+cd src
+catkin_create_pkg sample_package rospy std_msgs
+
+# go into sample_package and create scripts folder
+cd sample_package
+mkdir scripts
+
+# go into scripts
+cd scripts
+
+# create files
+touch simple_publisher.py simple_subscriber.py
+
+# change file permissions
+# (* is used to select all files that begin with simple_ and end with .py
+# read more about globbing if interested
+chmod +x simple_*.py
+
+# # # # # # # # #
+# write/copy code
+# find it here wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29
+# includes explanation and different topic name
+# # # # # # # # #
+
+# start ROS master in new terminal
+roscore
+
+# in a new terminal, cd into tutorial ws and source setup
+source devel/setup.bash
+
+# run the publisher script
+rosrun sample_package simple_publisher.py
+
+# in a new terminal, echo from the topic or run the subscriber node
+# <for echo>
+rostopic echo /<topic_name>
+# <for subscriber node>
+rosrun sample_package simple_subscriber.py
+
+
+# ----------------------------------------------
+# Additional info/debug
+# if catkin_make does not exist, try
+source /opt/ros/noetic/setup.bash
+
+# ----------------------------------------------
+# General Unix pointers
+# read man pages for further info if stuck
+
+# change directories (read about relative and absolute paths)
+# go up 1 folder
+cd ../
+# go to src inside tutorial_ws if you're already in tutorial_ws
+cd src
+# go to src inside tutorial_ws if you're somewhere else
+# tilde ~ symbol indicates default user directory inside /home
+cd ~/Documents/tutorial_ws/src
+# same thing but from root
+cd /home/<username>/Documents/tutorial_ws
+
+# make folder inside non-existing folder (create N folders at once)
+mkdir -p folder1/folder2/folder3
+
+# delete folders/files
+rm -r <name>
+
+# search for package names with that might include <string>
+rospack list | grep <string>
+
+# view output of a .txt or any other UTF-8/ASCII encoded file
+cat <filename>
+
+# create new files (say file1.txt and file2.txt)
+touch file1.txt file2.txt
+
+# change file permissions to make it executable
+chmod +x <file>
+
+# ----------------------------------------------

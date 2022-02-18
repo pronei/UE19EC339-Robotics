@@ -13,6 +13,7 @@ from action_tutorial.msg import Counter
 ASSIGNMENT = False
 
 
+# the command to run should be line this `rosrun action_tutorial counter_action_client.py <stop_value> <start_value> <rate>`
 def usage():
     str = "%s <counter_end_value>"%sys.argv[0]
     return str if not ASSIGNMENT else str + " <counter_start_value> <rate_of_counting>"
@@ -51,7 +52,7 @@ def counter_result_client():
     try:
         resultHandle = rospy.ServiceProxy("counter_result_server", CounterResult)
         resultResponse = resultHandle(True)
-        print("Server has finished till %d...!"%resultResponse.counted)
+        print("Server has finished till %d..."%resultResponse.counted)
         return resultResponse.counted
     except rospy.ServiceException as e:
         print("Service call for result failed: %s"%e)
@@ -59,8 +60,7 @@ def counter_result_client():
 
 
 if __name__ == "__main__":
-    # TODO: Change the number of arguments to read in the start and rate of counting
-    # the command to run should be line this `rosrun action_tutorial counter_action_client.py <stop_value> <start_value> <rate>`
+    # TODO: Change the number of arguments; read in the start and rate of counting from the command line
     if len(sys.argv) == 2:
         # `count` is the end value of the counter
         count = int(sys.argv[1])
