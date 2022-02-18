@@ -26,7 +26,7 @@ values of the counter and continue to spin.
 - Follow the TODOs mentioned inside `counter_action_client.py`, `counter_action_server.py` and `CounterGoal.srv`.
 - Upon completing each task mentioned under a TODO, please delete the corresponding TODO comment.
 - An automated script will grade your code depending on the functionality achieved so please test your code before submitting.
-- Submit the modified package folder `action_tutorial` inside a folder with your name and SRN (`Firstname_PES12017XXXXX`).
+- Submit a zip of the modified package folder `action_tutorial`. The zip should bear your name and SRN (`Firstname_PES12017XXXXX`).
 
 ## Environment setup
 
