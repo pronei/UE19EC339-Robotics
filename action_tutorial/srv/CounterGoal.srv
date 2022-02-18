@@ -2,5 +2,6 @@ uint8 count
 # TODO
 # add a field count_start, preferably unsigned integer
 # add a field rate, should handle floating point values
+# info on types can be found here: http://wiki.ros.org/msg
 ---
 bool result

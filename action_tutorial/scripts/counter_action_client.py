@@ -59,7 +59,7 @@ def counter_result_client():
         return False
 
 
-if __name__ == "__main__":
+def main():
     # TODO: Change the number of arguments; read in the start and rate of counting from the command line
     if len(sys.argv) == 2:
         # `count` is the end value of the counter
@@ -79,3 +79,7 @@ if __name__ == "__main__":
         rospy.spin()
     else:
         sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

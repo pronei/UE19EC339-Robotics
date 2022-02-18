@@ -22,13 +22,13 @@ values of the counter and continue to spin.
 1. A starting value to the counter instead of the 0 (default).
 2. A rate (in Hz) to the timer based callback for incrementing
 
-### Guidelines:
-- Follow the TODOs mentioned inside `counter_action_client.py`, `counter_action_server.py` and `CounterGoal.srv`.
+### Guidelines
+- Follow the TODOs mentioned inside [`counter_action_client.py`](action_tutorial/scripts/counter_action_client.py), [`counter_action_server.py`](action_tutorial/scripts/counter_action_server.py) and [`CounterGoal.srv`](action_tutorial/srv/CounterGoal.srv).
 - Upon completing each task mentioned under a TODO, please delete the corresponding TODO comment.
 - An automated script will grade your code depending on the functionality achieved so please test your code before submitting.
-- Submit a zip of the modified package folder `action_tutorial`. The zip should bear your name and SRN (`Firstname_PES12017XXXXX`).
+- Submit a zip of the modified package folder `action_tutorial`. The zip should bear your name and SRN (`Firstname_PES1UG19ECXXX`).
 
-## Environment setup
+## Environment setup for group based projects
 
 ### Prerequisites
 1. Ubuntu 18 or Ubuntu 20 (VM of the same alternatively if not possible to install)
@@ -36,7 +36,6 @@ values of the counter and continue to spin.
    - 16GB (or above) pendrive for Ubuntu
 2. ROS Melodic (Ubuntu 18) or ROS Noetic (Ubuntu 20)
 3. Gazebo 11
-3. Python 2
 
 ### Useful links
 - [Tutorial](https://www.fosslinux.com/10212/how-to-install-a-complete-ubuntu-on-a-usb-flash-drive.htm) for installing Ubuntu 20 on pendrive
