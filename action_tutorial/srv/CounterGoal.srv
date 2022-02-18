@@ -1,4 +1,4 @@
-uint8 count
+uint16 count
 # TODO
 # add a field for the starting value of the counter, preferably unsigned integer
 # add a field for the rate of the counter's incrementation, should handle floating point values

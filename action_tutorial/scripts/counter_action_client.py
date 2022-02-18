@@ -73,6 +73,7 @@ def main():
     print("Requesting a count to %d starting from "%(count))
 
     # the server has accepted our request to start counting
+    # TODO: change according to function definition's TODO
     if counter_goal_client(count):
         # ask the server to start publishing on /feedback_topic
         counter_result_client()
