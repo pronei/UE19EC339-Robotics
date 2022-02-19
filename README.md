@@ -2,7 +2,7 @@
 Repository that contains the starter codes for assignments and general instructions, links and resources.
 
 ## Mini-assignment I
-The package is contained in `action_tutorial`. Clone this repo, copy `action_tutorial` into your workspace and build.
+The package is contained in `action_tutorial`.
 
 The objective of this assignment is to understand how [**actions**](https://design.ros2.org/articles/actions.html) work in ROS.
 ![](https://docs.ros.org/en/foxy/_images/Action-SingleActionClient.gif)
@@ -17,6 +17,13 @@ Once this service call is handled on the server, it begins to publish "feedback"
 counter at that instant of time. The client having subscribed to this feedback topic, listens to it and logs the data on it.
 Once the counter's end value is reached, the server responses to the `result` request sent earlier. Both client and server log the final
 values of the counter and continue to spin.
+
+### How to run
+1. Clone this repo, copy the `action_tutorial` folder into your workspace/src and build using `catkin_make`. 
+2. Add `source ~/<path_to_your_ws>/devel/setup.bash` to the end of your `~/.bashrc`.
+3. Start `roscore` in a new terminal.
+4. In a new terminal, run `rosrun action_tutorial counter_action_server.py`.
+5. In another terminal, run `rosrun action_tutorial counter_action_client.py <counter_end_value>`.
 
 ### Functionality to be implemented
 1. A starting value to the counter instead of 0 (default).
