@@ -81,7 +81,8 @@ def run(simParams):
     # data generating loop which populates data with the poses for each iteration
     # for i in range(1, simParams.ITERS):
         # update and get the current state
-        # state = solver.next_iter().get_x()
+        # solver.next_iter()
+        # state = solver.get_x()
         # data = rotate_lines(data, state[3:], i)
         # data = translate_lines(data, state[:3], i)
     
@@ -115,8 +116,8 @@ def run(simParams):
     # find the rotation matrix between the cube and camera
     # camRotMat = MySolver.get_rot_mat(solver.get_x(), get_camera(simParams.BOUNDS))
 
-    # change stats such that data and camRotMat are flattened and saved as
-    # a 1D array
+    # change stats such that data and camRotMat are flattened, save as
+    # a 1D array and delete line 122
     # stats = np.concatenate((data.ravel(), camRotMat.ravel()), axis=None)
     stats = data.flatten()
     

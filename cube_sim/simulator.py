@@ -27,9 +27,12 @@ class MySolver(object):
     current iteration. Refer to the unit testing in integral.py for its usage.
     """
 
+    # TODO: Change this, there won't be additional todos in this project, the implementation
+    # is completely left up to your liking :)
     PROJECT = False
     
     def __init__(self, tstep, iters, forces, x=np.zeros((6, 1)), x_dot=np.zeros((6, 1))):        
+        # Access this array for force applied in each iteration
         self.forces = forces
         # [x, y, z, phi, theta, psi]
         self._x = x
@@ -37,7 +40,7 @@ class MySolver(object):
         self._x_dot = x_dot
         self.tstep = tstep
         self.iters = iters
-        # you may need to use this
+        # you may need to use this and update in `next_iter`
         self.iter = 1
 
         # you may either use an integrator or equations to obtain x_dot and x;
@@ -47,9 +50,9 @@ class MySolver(object):
 
     def next_iter(self):
         """Update the state variables of the model, don't return anything.
-        Update x and x_dot on each iteration after calculating x_dot_dot using
-        F=ma either using discrete integrators (those initialized in the constructor)
-        or with equations of motion.
+        Update x and x_dot on each iteration. Calculate x_dot_dot using
+        Newton's laws of motion. Use either discrete integrators or
+        equations of motion to find x_dot and x.
         """
         pass
 
