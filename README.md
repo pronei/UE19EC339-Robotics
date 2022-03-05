@@ -1,6 +1,30 @@
 # Robotic Systems - UE19EC339
 Repository that contains the starter codes for assignments and general instructions, links and resources.
 
+## Project I
+The `cube_sim` package contains the necessary starter code and a utility class that implements a discrete integrator.
+
+The object of this project is to understand and develop a framework for simulating an object, in our case, a simple cube in 3
+dimensions. Whenever a force or a torque is applied to an object, its motion and pose is described by [Newton's laws](https://en.
+wikipedia.org/wiki/Newton%27s_laws_of_motion) and the extended [Euler's Laws](https://en.wikipedia.org/wiki/Euler%27s_laws_of_motion) 
+of motion.
+
+![gif of cube moving](demo_cubesim.gif)
+
+### How to run
+1. Clone this repo and `cd` into `cube_sim`. This is the Python package with all the necessary scripts.
+1. To view the demo, run `3d_cube_anim.py` with Python3.
+1. Once you have completed imeplementing `simulator.py` and uncommented the neccessary lines in `3d_cube_anim.py`,
+run `3d_cube_anim.py` again.
+
+### Implementation details in `simulator.py`
+1. If you're going to use an integrator, initialize it accordingly in the constructor for `MySolver`.
+1. The solver's state maintained at each iteration consists of the state vector and its first derivative,
+the array of force vectors and an iteration number. The state vector is modelled as a 6x1 vector 
+<img src="https://render.githubusercontent.com/render/math?math=\mathbf{x}_{cube} = [\ x\quad y\quad z\quad \phi\quad \theta\quad \psi\ ]^\top"> and <img src="https://render.githubusercontent.com/render/math?math=\dot{\mathbf{x}}_{cube} = [\ \dot{x}\quad \dot{y}\quad \dot{z}\quad \dot{\phi}\quad \dot{\theta}\quad \dot{\psi}\ ]^\top".
+1. 
+
+
 ## Mini-assignment I
 The package is contained in `action_tutorial`.
 
