@@ -125,7 +125,9 @@ def run(simParams):
 
 
 if __name__ == "__main__":
-    for seed in SEEDS:
-        stats = run(SimParams(seed))
-        np.savetxt("stats_" + str(seed) + ".csv", stats, fmt="%.5f", delimiter=',', encoding='ASCII')
- 
+    if MySolver.PROJECT:
+        for seed in SEEDS:
+            stats = run(SimParams(seed))
+            np.savetxt("stats_" + str(seed) + ".csv", stats, fmt="%.5f", delimiter=',', encoding='ASCII')
+    else:
+        stats = run(SimParams(seed=1))

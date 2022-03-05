@@ -23,7 +23,7 @@ class SimParams(object):
         self.seed = seed
 
 
-# Physical dimensions of the cube
+# Physical dimensions of the cube in SI units
 class Cube(object):
     SIDE_LENGTH = 2
     MASS = 1
