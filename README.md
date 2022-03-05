@@ -11,10 +11,13 @@ dimensions. Whenever a force or a torque is applied to an object, its motion and
 
 ![gif of cube moving](demo_cubesim.gif)
 
+You may assume the cube to have a uniform mass distribution and that each force vector originates at its center of mass.
+Modelling the state for an object such as a cube is straightforward and involves only the most basic form of motion laws.
+
 ### How to run
 1. Clone this repo and `cd` into `cube_sim`. This is the Python package with all the necessary scripts.
 1. To view the demo, run `3d_cube_anim.py` with Python3.
-1. Once you have completed imeplementing `simulator.py` and uncommented the neccessary lines in `3d_cube_anim.py`,
+1. Once you have completed implementing `simulator.py` and uncommented the neccessary lines in `3d_cube_anim.py`,
 run `3d_cube_anim.py` again.
 
 ### Implementation details in `simulator.py`
@@ -23,8 +26,24 @@ run `3d_cube_anim.py` again.
 the array of force vectors and an iteration number. The state vector is modelled as a 6x1 vector <img src="https://render.githubusercontent.com/render/math?math=\mathbf{x}_{cube} = [\ x\quad y\quad z\quad \phi\quad \theta\quad \psi\ ]^\top">
 and <img src="https://render.githubusercontent.com/render/math?math=\dot{\mathbf{x}}_{cube} = [\ \dot{x}\quad \dot{y}\quad \dot{z}\quad \dot{\phi}\quad \dot{\theta}\quad \dot{\psi}\ ]^\top">. Each force vector is modelled as <img src="https://render.githubusercontent.com/render/math?math=\mathbf{F}_{cube} = [\ F_x\quad F_y\quad F_z\quad \tau_x\quad \tau_y\quad \tau_z\ ]^\top">.
 1. Each successive call to `next_iter` should update the state. Don't return the state in this method, use `get_x` for that.
+Here you should consider the force vector `self.forces[i]` as input to the system and obtain a response for it in terms of the
+state defined above.
 1. The getters should return the state and its derivative.
-1. 
+1. The static method `get_rot_mat(x, y)` is used to obtain the rotation matrix which maps X's pose to that of Y.
+Complete this method in order to map the cube's final pose in the last iteration to that of a randomly generated observing camera.
+
+### Submission guidelines
+- Complete the interfaces in `simulator.py` and modify `run` in `3d_cube_anim.py`.
+- There are 5 test cases, each being random and reproducible based on the seed value. The entire state vector over
+all iterations will be stored in `data`. This as well as the obtained rotation matrix `camRotMat` will be exported to a csv file
+as a single flattened array.
+- An automated script will run your code and grade based on the values in each csv thus generated. This will be compared to the
+solution values for that seed (within a threshold of course).
+- Submit a zip containing _only_ the modified package `cube_sim`. The zip should bear your name and SRN (`FullName_PES1UG19XXXXX`).
+
+### Dependencies
+- [NumPy](https://pypi.org/project/numpy/)
+- [matplotlib](https://matplotlib.org/)
 
 
 ## Mini-assignment I

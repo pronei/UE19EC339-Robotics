@@ -8,12 +8,14 @@ from integral import ForwardEuler, BackwardEuler, Trapezoidal
 
 class MySolver(object):
     """
-    A class to be implemented as part of the project 1.
-    You're given the template of a solver (like ODE45 but a toy implementation) which has interfaces
-    `next_iter`, `get_x`, `get_x_dot`. Each of these 3 interfaces have to be implemented.
+    A class to be implemented as part of the project I.
     This class serves to model a solver that a simulation engine such as Gazebo might run 
     in its backend gzserver.
 
+    You're given the template of a solver (like ODE45 but a toy implementation) which has an
+    interface `next_iter`. This interface, which is meant to to calculate and update the state,
+    has to be implemented.
+    
     Additionally static method `get_rot_mat` is supposed to be implemented which finds the
     3x3 rotation matrix between two poses.
 
@@ -57,10 +59,16 @@ class MySolver(object):
         pass
 
     def get_x(self):
-        pass
+        return self._x
+
+    def set_x(self, new_x):
+        self._x = new_x
 
     def get_x_dot(self):
-        pass
+        return self._x_dot
+
+    def set_x_dot(self, new_x_dot):
+        self._x_dot = new_x_dot
 
     @staticmethod
     def get_rot_mat(x, y):

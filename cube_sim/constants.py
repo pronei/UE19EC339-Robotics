@@ -27,7 +27,7 @@ class SimParams(object):
 class Cube(object):
     SIDE_LENGTH = 2
     MASS = 1
-    MOMENT_OF_INERTIA = [1e-3]*3
+    MOMENT_OF_INERTIA = [0.66667]*3
 
 
 # generate the pose of a camera within bounds
