@@ -24,7 +24,7 @@ run `3d_cube_anim.py` again.
 1. If you're going to use an integrator, initialize it accordingly in the constructor for `MySolver`.
 1. The solver's state maintained at each iteration consists of the state vector and its first derivative,
 the array of force vectors and an iteration number. The state vector is modelled as a 6x1 vector <img src="https://render.githubusercontent.com/render/math?math=\mathbf{x}_{cube} = [\ x\quad y\quad z\quad \phi\quad \theta\quad \psi\ ]^\top">
-and <img src="https://render.githubusercontent.com/render/math?math=\dot{\mathbf{x}}_{cube} = [\ \dot{x}\quad \dot{y}\quad \dot{z}\quad \dot{\phi}\quad \dot{\theta}\quad \dot{\psi}\ ]^\top">. Each force vector is modelled as <img src="https://render.githubusercontent.com/render/math?math=\mathbf{F}_{cube} = [\ F_x\quad F_y\quad F_z\quad \tau_x\quad \tau_y\quad \tau_z\ ]^\top">.
+and  <img src="https://render.githubusercontent.com/render/math?math=\dot{\mathbf{x}}_{cube} = [\ \dot{x}\quad \dot{y}\quad \dot{z}\quad \dot{\phi}\quad \dot{\theta}\quad \dot{\psi}\ ]^\top">. Each force vector is modelled as <img src="https://render.githubusercontent.com/render/math?math=\mathbf{F}_{cube} = [\ F_x\quad F_y\quad F_z\quad \tau_x\quad \tau_y\quad \tau_z\ ]^\top">.
 1. Each successive call to `next_iter` should update the state. Don't return the state in this method, use `get_x` for that.
 Here you should consider the force vector `self.forces[i]` as input to the system and obtain a response for it in terms of the
 state defined above.
