@@ -5,9 +5,9 @@ Repository that contains the starter codes for assignments and general instructi
 The `cube_sim` package contains the necessary starter code and a utility class that implements a discrete integrator.
 
 The object of this project is to understand and develop a framework for simulating an object, in our case, a simple cube in 3
-dimensions. Whenever a force or a torque is applied to an object, its motion and pose is described by [Newton's laws](https://en.
-wikipedia.org/wiki/Newton%27s_laws_of_motion) and the extended [Euler's Laws](https://en.wikipedia.org/wiki/Euler%27s_laws_of_motion) 
-of motion.
+dimensions. Whenever a force or a torque is applied to an object, its motion and pose is described by
+[Newton's laws](https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion) and the extended 
+[Euler's Laws](https://en.wikipedia.org/wiki/Euler%27s_laws_of_motion) of motion.
 
 ![gif of cube moving](demo_cubesim.gif)
 
@@ -20,8 +20,10 @@ run `3d_cube_anim.py` again.
 ### Implementation details in `simulator.py`
 1. If you're going to use an integrator, initialize it accordingly in the constructor for `MySolver`.
 1. The solver's state maintained at each iteration consists of the state vector and its first derivative,
-the array of force vectors and an iteration number. The state vector is modelled as a 6x1 vector 
-<img src="https://render.githubusercontent.com/render/math?math=\mathbf{x}_{cube} = [\ x\quad y\quad z\quad \phi\quad \theta\quad \psi\ ]^\top"> and <img src="https://render.githubusercontent.com/render/math?math=\dot{\mathbf{x}}_{cube} = [\ \dot{x}\quad \dot{y}\quad \dot{z}\quad \dot{\phi}\quad \dot{\theta}\quad \dot{\psi}\ ]^\top".
+the array of force vectors and an iteration number. The state vector is modelled as a 6x1 vector <img src="https://render.githubusercontent.com/render/math?math=\mathbf{x}_{cube} = [\ x\quad y\quad z\quad \phi\quad \theta\quad \psi\ ]^\top">
+and <img src="https://render.githubusercontent.com/render/math?math=\dot{\mathbf{x}}_{cube} = [\ \dot{x}\quad \dot{y}\quad \dot{z}\quad \dot{\phi}\quad \dot{\theta}\quad \dot{\psi}\ ]^\top">. Each force vector is modelled as <img src="https://render.githubusercontent.com/render/math?math=\mathbf{F}_{cube} = [\ F_x\quad F_y\quad F_z\quad \tau_x\quad \tau_y\quad \tau_z\ ]^\top">.
+1. Each successive call to `next_iter` should update the state. Don't return the state in this method, use `get_x` for that.
+1. The getters should return the state and its derivative.
 1. 
 
 
