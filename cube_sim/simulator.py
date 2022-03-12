@@ -43,12 +43,12 @@ class MySolver(object):
         self.tstep = tstep
         self.iters = iters
         # you may need to use this and update in `next_iter`
-        self.iter = 1
+        self.iter = 0
 
         # you may either use an integrator or equations to obtain x_dot and x;
         # if you're using an integrator, initialize it here in an instance variable;
         # the integrator class is vectorized so you need not initialize it for each component
-        # x_dot = BackwardEuler(x_dot_init, tstep)
+        # integral_x_dot = BackwardEuler(x_init, tstep)
 
     def next_iter(self):
         """Update the state variables of the model, don't return anything.
@@ -72,6 +72,11 @@ class MySolver(object):
 
     @staticmethod
     def get_rot_mat(x, y):
-        """Find the rotation matrix between two poses x and y"""
+        """Find the homogenous rotation matrix between two poses x and y"""
+        homoRotMat = np.zeros((4, 4))
         rotMat = np.zeros((3, 3))
-        return rotMat
+        translationVec = np.zeros((3, 1))
+        # Fill in `rotMat` and `translationVec` here
+        homoRotMat[:3, :3] = rotMat
+        homoRotMat[:-1, [-1]] = translationVec
+        return homoRotMat

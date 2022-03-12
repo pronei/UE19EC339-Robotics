@@ -73,7 +73,7 @@ def run(simParams):
     data = gen_box_lines(Cube.SIDE_LENGTH, N=simParams.ITERS)
     
     # generate N input vectors
-    # ftVec = get_input(simParams.ITERS)
+    ftVec = get_input(simParams.ITERS)
     
     # Instantiate your solver here
     # solver = MySolver(simParams.TSTEP, simParams.ITERS, ftVec) 

@@ -39,4 +39,4 @@ def get_camera(bounds):
 
 # generate N random input vectors of [F_vec, T_vec]
 def get_input(N):
-    return np.random.random(size=(N, 6, 1))
+    return 2 * np.random.random_sample(size=(N, 6, 1)) - 1
