@@ -1,0 +1,161 @@
+<?xml version="1.0" ?>
+<robot name="janitor" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find janitor_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find janitor_description)/urdf/janitor.trans" />
+<xacro:include filename="$(find janitor_description)/urdf/janitor.gazebo" />
+
+
+
+<link name="base_link">
+    <collision>
+      <origin xyz="-0.1 0 0.1" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.5 0.5 0.2"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="-0.1 0 0.1" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.5 0.5 0.2"/>
+      </geometry>
+      <material name="orange"/>
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      <mass value="25"/>
+      <inertia
+        ixx="25.0" ixy="0.0" ixz="0.0"
+        iyy="25.0" iyz="0.0"
+        izz="25.0"/>
+    </inertial>
+  </link>
+
+
+<link name="vertical_body_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.220270275826719e-07 -3.129303590596825e-07 0.6797932577648836"/>
+    <mass value="14.513519999999996"/>
+    <inertia ixx="2.249865" ixy="0.0" ixz="0.0" iyy="2.249865" iyz="-0.0" izz="0.026865"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.108697 -0.000637 -0.195136"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/vertical_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.108697 -0.000637 -0.195136"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/vertical_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="horizontal_body_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.5984419722507355 -3.129303590811497e-07 0.04970922857426663"/>
+    <mass value="3.0"/>
+    <inertia ixx="0.007712" ixy="-0.0" ixz="0.000479" iyy="1.407278" iyz="0.0" izz="1.410619"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.158697 -0.000637 -0.401136"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/horizontal_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.158697 -0.000637 -0.401136"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/horizontal_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="vertical_pickup_body_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.04787954786711146 -0.05575573742860998 -0.512801661589241"/>
+    <mass value="3.3011829023328936"/>
+    <inertia ixx="0.183863" ixy="7e-05" ixz="0.000668" iyy="0.158497" iyz="-0.031306" izz="0.047022"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-1.496303 -0.000637 -0.476136"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/vertical_pickup_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-1.496303 -0.000637 -0.476136"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/vertical_pickup_body_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.2202702276707953e-07 -0.015000312930359055 -0.10632446634511768"/>
+    <mass value="1.1878142875593714"/>
+    <inertia ixx="0.004456" ixy="0.0" ixz="0.0" iyy="0.009497" iyz="0.0" izz="0.005219"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-1.448803 -0.180637 0.103864"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-1.448803 -0.180637 0.103864"/>
+    <geometry>
+      <mesh filename="package://janitor_description/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="world"/>
+
+<joint name="fixed_joint" type="fixed">
+  <parent link="world"/>
+  <child link="base_link"/>
+</joint>
+
+<joint name="twist_joint" type="revolute">
+  <origin rpy="0 0 0" xyz="-0.108697 0.000637 0.195136"/>
+  <parent link="base_link"/>
+  <child link="vertical_body_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit effort="100" lower="-3.141593" upper="3.141593" velocity="0.4"/>
+</joint>
+
+<joint name="prismatic_vertical" type="prismatic">
+  <origin rpy="0 0 0" xyz="-0.05 0.0 0.206"/>
+  <parent link="vertical_body_1"/>
+  <child link="horizontal_body_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit effort="15000" lower="0.0" upper="0.975" velocity="5"/>
+</joint>
+
+<joint name="prismatic_horizontal" type="prismatic">
+  <origin rpy="0 0 0" xyz="1.655 0.0 0.075"/>
+  <parent link="horizontal_body_1"/>
+  <child link="vertical_pickup_body_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <limit effort="100" lower="0.0" upper="1.3" velocity="100"/>
+</joint>
+
+<joint name="prismatic_gripper" type="prismatic">
+  <origin rpy="0 0 0" xyz="-0.0475 0.18 -0.58"/>
+  <parent link="vertical_pickup_body_1"/>
+  <child link="gripper_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+  <limit effort="100" lower="-0.225" upper="0.0" velocity="100"/>
+</joint>
+
+
+</robot>

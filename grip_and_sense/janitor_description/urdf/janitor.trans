@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="janitor" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="twist_joint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="twist_joint">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="twist_joint_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="prismatic_vertical_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="prismatic_vertical">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="prismatic_vertical_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="prismatic_horizontal_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="prismatic_horizontal">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="prismatic_horizontal_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="prismatic_gripper_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="prismatic_gripper">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="prismatic_gripper_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

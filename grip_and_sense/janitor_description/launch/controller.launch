@@ -1,0 +1,11 @@
+<launch>
+
+<!-- Load PID values of the controllers -->
+<rosparam file="$(find janitor_description)/config/controller.yaml" command="load"/>
+
+<!-- Load the joint position controllers -->
+<node args="twist_joint_position_controller prismatic_vertical_position_controller
+            prismatic_horizontal_position_controller prismatic_gripper_position_controller joint_state_controller"
+            name="controller_spawner" ns="/janitor" output="screen" pkg="controller_manager" respawn="false" type="spawner"/>
+
+</launch>

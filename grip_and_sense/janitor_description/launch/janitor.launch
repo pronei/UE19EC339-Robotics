@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- Load janitor bot -->
+  <param command="$(find xacro)/xacro $(find janitor_description)/urdf/janitor.xacro" name="robot_description"/>
+
+<!-- Launch the empty world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+<!-- Spawn janitor bot -->
+  <node args="-param robot_description -urdf -model janitor" name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"/>
+
+<!-- Start robot state publisher for publishing transforms -->
+  <node name="robot_state_publisher" output="screen" pkg="robot_state_publisher" respawn="false" type="robot_state_publisher">
+    <remap from="/joint_states" to="/janitor/joint_states"/>
+  </node>
+
+<!-- Launch the controllers -->
+  <include file="$(find janitor_description)/launch/controller.launch" />
+
+<!-- Launch rviz for visualization of sensor info -->
+  <!-- <arg default="$(find janitor_description)/config/config.rviz" name="rvizconfig"/>
+  <node args="-d $(arg rvizconfig)" name="rviz" pkg="rviz" required="true" type="rviz"/> -->
+
+</launch>
