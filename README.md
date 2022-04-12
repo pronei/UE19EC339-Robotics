@@ -64,7 +64,7 @@ the robotic arm.
 ## Project I
 The `cube_sim` package contains the necessary starter code and a utility class that implements a discrete integrator.
 
-The object of this project is to understand and develop a framework for simulating an object, in our case, a simple cube in 3
+The objective of this project is to understand and develop a framework for simulating an object, in our case, a simple cube in 3
 dimensions. Whenever a force or a torque is applied to an object, its motion and pose is described by
 [Newton's laws](https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion) and the extended 
 [Euler's Laws](https://en.wikipedia.org/wiki/Euler%27s_laws_of_motion) of motion.
@@ -91,6 +91,9 @@ state defined above.
 1. The getters should return the state and its derivative.
 1. The static method `get_rot_mat(x, y)` is used to obtain the rotation matrix which maps X's pose to that of Y.
 Complete this method in order to map the cube's final pose in the last iteration to that of a randomly generated observing camera.
+1. **[BONUS]** See if you can vectorize your solution. Vectorization refers to performing mathematical operations on entire vector arrays
+without the explicit use of iteration. Not only will this result in faster execution times but will also make your solution concise with
+higher code density.
 
 ### Submission guidelines
 - Complete the interfaces in `simulator.py` and modify `run` in `3d_cube_anim.py`.
