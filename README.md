@@ -5,6 +5,7 @@ Repository that contains the starter codes for assignments and general instructi
 The `grip_and_sense` metapackage consists of two packages `janitor_description` and `robotic_arm_control` which provide
 the arm itself and its functionality respectively. These packages also contain the necessary starter code and utility classes 
 that provide controllers for each joint of the arm and a spawner for the boxes to be gripped.
+
 ![figure of the setup](robotic_arm.png)
 
 The objective of this project is to understand and solve for the kinematics of a simple RPP (Revolute-Prismatic-Prismatic)
@@ -14,9 +15,11 @@ of the spawned boxes.
 
 The robotic arm consists of four joints as seen in this figure. All joints except the gripper prismatic joint can be influenced
 by your solution to the inverse kinematics and implementation of `iKine`.
+
 ![figure of joints in arm](Joints.png)
 
 The lengths of each link are as shown below. This information is needed to solve for the inverse kinematics of the arm.
+
 ![figure of link lengths of arm](Lengths.png)
 
 The class `arm_control` is responsible for controlling the joints of the RPP arm. It subscribes to the state and
@@ -54,7 +57,7 @@ the robotic arm.
 ### Dependencies
 - `ros-noetic-ros-control`
 - `ros-noetic-ros-controllers`
-- `ros-noetic-joint-state-controllers`
+- `ros-noetic-joint-state-controller`
 - `ros-noetic-effort-controllers`
 - `ros-noetic-position-controllers`
 - `ros-noetic-velocity-controllers`
