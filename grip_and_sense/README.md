@@ -51,7 +51,7 @@ the robotic arm.
 ### Dependencies
 - `ros-noetic-ros-control`
 - `ros-noetic-ros-controllers`
-- `ros-noetic-joint-state-controllers`
+- `ros-noetic-joint-state-controller`
 - `ros-noetic-effort-controllers`
 - `ros-noetic-position-controllers`
 - `ros-noetic-velocity-controllers`
